@@ -1,4 +1,5 @@
 {
+  "project": "Pelican Sports",
   "plugins": [
     {
       "id": "generate-variations",
@@ -13,6 +14,14 @@
       "includePaths": [
         "**.docx**"
       ]
+    },
+    {
+      "id": "library",
+      "title": "Library",
+      "environments": ["edit"],
+      "url": "/tools/sidekick/library.html",
+      "excludePaths": ["**"],
+      "includePaths": ["**.docx**", "/document/**"]
     }
   ]
 }
