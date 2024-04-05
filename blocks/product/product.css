@@ -16,11 +16,39 @@
 }
 
 .product .cards-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   position: absolute;
+  bottom: 5%;
+  right: 5%;
   margin: 16px;
   color: white;
 }
 
+.product .cards-card-body p {
+  margin: 0;
+}
+
+.product .cards-card-body p:first-of-type {
+  text-transform: capitalize;
+}
+
+.product .cards-card-body p:nth-of-type(2) {
+  font-weight: bolder;
+  font-size: xxx-large;
+}
+
+.product .cards-card-body .button-container {
+  margin: 0;
+}
+
+.product .cards-card-body .button-container a {
+  background-color: none;
+  border-radius: 0;
+  border-color: white;
+}
+
 .product .cards-card-image {
-  position: absolute;
+  position: relative;
 }
