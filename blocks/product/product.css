@@ -11,8 +11,6 @@
 .product > ul > li {
   position: relative;
   width: 50%;
-  border: 1px solid var(--dark-color);
-  background-color: var(--background-color);
 }
 
 .product .cards-card-body {
@@ -36,7 +34,7 @@
 
 .product .cards-card-body p:nth-of-type(2) {
   font-weight: bolder;
-  font-size: xxx-large;
+  font-size: xx-large;
 }
 
 .product .cards-card-body .button-container {
@@ -44,7 +42,7 @@
 }
 
 .product .cards-card-body .button-container a {
-  background-color: none;
+  background-color: transparent;
   border-radius: 0;
   border-color: white;
 }
