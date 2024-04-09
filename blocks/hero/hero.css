@@ -12,11 +12,33 @@ main .hero-container {
   min-height: 300px;
 }
 
-.hero h1 {
+.hero > div > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 120px 0;
+  font-family: 'roboto';
+  flex-direction: column;
+}
+
+.hero h1,
+.hero p {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  color: orange;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 45px;
+  margin: 0;
+}
+
+.hero p:first-of-type {
+  text-transform: uppercase;
+  letter-spacing: var(--eyebrow-letter-spacing);
+  font-size: 1.1em;
+  margin-bottom: 5px;
 }
 
 .hero picture {

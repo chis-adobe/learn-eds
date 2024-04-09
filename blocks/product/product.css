@@ -1,4 +1,8 @@
-.product > ul {
+.section.full .product-wrapper {
+  max-width: none;
+}
+
+.section .product > ul {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -8,45 +12,75 @@
   display: flex;
 }
 
-.product > ul > li {
+.section .product > ul > li {
   position: relative;
-  width: 50%;
+  width: 100%;
 }
 
-.product .cards-card-body {
+.section .product .cards-card-body {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   align-items: flex-end;
-  position: absolute;
-  bottom: 5%;
-  right: 5%;
-  margin: 16px;
+  position: relative;
+  width: 90%;
+  aspect-ratio: 1;
+  margin: 5%;
   color: white;
 }
 
-.product .cards-card-body p {
+.section.full .product .cards-card-body {
+  align-items: flex-start;
+  justify-content: flex-start;
+  max-width: 1200px;
+  padding-bottom: 200px; 
+  aspect-ratio: unset;
+  width: 100%;
+  height: 100%;
+  margin: 30px;
+}
+
+.section .product .cards-card-body p {
   margin: 0;
 }
 
-.product .cards-card-body p:first-of-type {
-  text-transform: capitalize;
+.section .product .cards-card-body p:first-of-type {
+  text-transform: uppercase;
+  letter-spacing: var(--eyebrow-letter-spacing);
+  font-size: 18px;
 }
 
-.product .cards-card-body p:nth-of-type(2) {
+.section .product .cards-card-body p:nth-of-type(2) {
   font-weight: bolder;
-  font-size: xx-large;
+  font-size: 2.125em;
 }
 
-.product .cards-card-body .button-container {
+.section .product .cards-card-body .button-container {
   margin: 0;
 }
 
-.product .cards-card-body .button-container a {
+.section .product .cards-card-body .button-container a {
   background-color: transparent;
   border-radius: 0;
   border-color: white;
+  line-height: 1.42;
+  letter-spacing: var(--eyebrow-letter-spacing);
+  font-size: 13px;
+  padding: 10px 20px;
+  text-transform: uppercase;
 }
 
-.product .cards-card-image {
-  position: relative;
+.section .product .cards-card-image {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  object-fit: cover;
+  inset: 0;
+  box-sizing: border-box;
+}
+
+.section .product .cards-card-image img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }

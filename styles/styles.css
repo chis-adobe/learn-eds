@@ -23,6 +23,7 @@
   --body-font-family: roboto, roboto-fallback;
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
+  --eyebrow-letter-spacing: 0.3em;
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -38,7 +39,10 @@
   --heading-font-size-xs: 18px;
 
   /* nav height */
-  --nav-height: 64px;
+  --nav-height: 175px;
+
+  /* section padding */
+  --section-padding: 64px 32px;
 }
 
 @font-face {
@@ -192,7 +196,7 @@ main .section {
 
 @media (width >= 600px) {
   main .section {
-    padding: 64px 32px;
+    padding: var(--section-padding);
   }
 }
 
@@ -207,4 +211,14 @@ main .section {
 main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
+}
+
+main .section.horizontal {
+  display: flex;
+  gap: 20px;
+  max-width: 100%;
+}
+
+main .section.horizontal div {
+  flex: 1;
 }

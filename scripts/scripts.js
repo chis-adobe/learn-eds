@@ -14,6 +14,7 @@ import {
 } from './aem.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
+const HORIZONTAL_BLOCK_CLASS = "horizontal";
 
 /**
  * Builds hero block and prepends to main in a new section.
@@ -24,10 +25,43 @@ function buildHeroBlock(main) {
   const picture = main.querySelector('picture');
   // eslint-disable-next-line no-bitwise
   if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
+    // check for elements before and after it
+    const previousEl = h1.previousElementSibling;
+    const nextEl = h1.nextElementSibling;
+    let elems = [picture];
+
+    if(previousEl) {
+      elems.push(previousEl);
+    }
+
+    elems.push(h1);
+
+    if(nextEl) {
+      elems.push(nextEl);
+    }
+    
     const section = document.createElement('div');
-    section.append(buildBlock('hero', { elems: [picture, h1] }));
+    section.append(buildBlock('hero', { elems: elems }));
     main.prepend(section);
   }
+}
+
+/**
+ * Wraps children of horizontal blocks in a parent wrapper to enforce margins
+ * @param {Element} main The container element
+ */
+function buildHorizontalBlocks(main) {
+  const horizontalBlocks = main.querySelectorAll(`div.${HORIZONTAL_BLOCK_CLASS}`);
+
+  horizontalBlocks.forEach(horizontalBlock => {
+    const wrapper = document.createElement('div');
+
+    while(horizontalBlock.firstChild) {
+      wrapper.append(horizontalBlock.firstChild);
+    }
+
+    horizontalBlock.append(wrapper);
+  });
 }
 
 /**
@@ -49,6 +83,7 @@ async function loadFonts() {
 function buildAutoBlocks(main) {
   try {
     buildHeroBlock(main);
+    buildHorizontalBlocks(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
